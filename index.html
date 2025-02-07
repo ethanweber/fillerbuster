@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- todo: remove this when going public -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" name="description" />
+  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="og:title" />
+  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="og:description" />
+  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="twitter:title" />
+  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="twitter:description" />
+  <meta property="og:type" content="website" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta charset="UTF-8">
+
+  <title>Fillerbuster: Multi-View Scene Completion for Casual Captures</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title method-class">
+              Fillerbuster: Multi-View Scene Completion<br>for Casual Captures
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://ethanweber.me/">Ethan Weber</a><sup>1,3</sup>,</span>
+              <span class="author-block">
+                <span class="author-block">
+                  <a href="https://sirwyver.github.io/">Norman Müller</a><sup>3</sup>,</span>
+                <span class="author-block">
+                  <span class="author-block">
+                    <a href="https://yashkant.github.io/">Yash Kant</a><sup>2,3</sup>,</span>
+                  <span class="author-block">
+                    <span class="author-block">
+                      <a href="https://vasuagrawal.com/">Vasu Agrawal</a><sup>3</sup>,</span>
+                    <span class="author-block">
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://zollhoefer.com/">Michael Zollhöfer</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <span class="author-block">
+                  <a href="https://people.eecs.berkeley.edu/~kanazawa/">Angjoo Kanazawa</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <span class="author-block">
+                    <a href="https://richardt.name/">Christian Richardt</a><sup>3</sup></span>
+                  <span class="author-block">
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Berkeley,</span>
+              <span class="author-block"><sup>2</sup>U Toronto,</span>
+              <span href="https://about.meta.com/realitylabs/" class="author-block"><sup>3</sup>Meta Reality Labs</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">arXiv 2025</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/facebookresearch/fillerbuster"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body is-size-3">
+        <div style="text-align: center;">
+          TLDR: <span class="method-class">Fillerbuster</span> completes unknown regions of a 3D scene by utilizing our
+          novel multi-view latent diffusion transformer.
+        </div>
+        <div class="container" style="display: flex;">
+          <img src="images/model-architecture.jpg" style="width: 100%; height: auto;">
+        </div>
+      </div>
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Overview Video</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container is-max-widescreen is-centered" style="text-align: center;">
+      <button class="button is-normal is-rounded is-dark" id="toggle-overview-video-button"
+        onclick="toggleOverviewVideo()">Show Overview Video</button>
+      <div id="overview-video-container" style="display: none;">
+        <video id="overview-video" width="100%" controls>
+          <source src="Fillerbuster-overview.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <script>
+      function toggleOverviewVideo() {
+        const videoContainer = document.getElementById("overview-video-container");
+        if (videoContainer.style.display === "none") {
+          videoContainer.style.display = "block";
+          document.getElementById("toggle-overview-video-button").textContent = "Hide Overview Video";
+        } else {
+          videoContainer.style.display = "none";
+          document.getElementById("toggle-overview-video-button").textContent = "Show Overview Video";
+        }
+      }
+    </script>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Flexible Conditioning and Generation</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              Our model supports a flexible number of inputs and outputs. Here we condition on 1, 2, 3, or 4 images and
+              generate the missing content in the full 24 frames by interpolating between. In other experiments, we
+              condition on 16 or more images.
+              <br>
+              <i>Select a scene and how many images to condition on. The generated video follows the gray camera
+                trajectory.</i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns is-centered" style="margin-bottom: 0px;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <button class="button flexible-button is-rounded is-dark is-small" id="garden"
+              onclick="setDataset_flexible('garden')">garden</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="kitchen"
+              onclick="setDataset_flexible('kitchen')">kitchen</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="teatime"
+              onclick="setDataset_flexible('teatime')">teatime</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="bookstore"
+              onclick="setDataset_flexible('bookstore')">book store</button>
+            <br>
+            <button class="button flexible-button is-rounded is-dark is-small" id="one"
+              onclick="setMethod_flexible('1')">1</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="two"
+              onclick="setMethod_flexible('2')">2</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="three"
+              onclick="setMethod_flexible('3')">3</button>
+            <button class="button flexible-button is-rounded is-dark is-small" id="four"
+              onclick="setMethod_flexible('4')">4</button>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered" style="margin-bottom: 0px;">
+        <div class="column">
+          <div class="container is-max-widescreen is-centered">
+            <img id="flexible-comparison-image-0" src="./videos/flexible/kitchen/3/image.jpg">
+            <img id="flexible-comparison-image-1" src="./videos/flexible/kitchen/3/image.jpg" hidden>
+            <div class="overlay">
+              <span>Conditioning Views</span>
+            </div>
+            <div class="container is-max-widescreen is-centered">
+              <img id="flexible-comparison-screenshot-0" src="./videos/flexible/kitchen/3/screenshot.jpg">
+              <img id="flexible-comparison-screenshot-1" src="./videos/flexible/kitchen/3/screenshot.jpg" hidden>
+              <div class="overlay">
+                <span>New Views (Gray)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="container is-max-widescreen is-centered">
+            <video id="flexible-comparison-video-0" autoplay muted playsinline controls width="100%">
+              <source src="./videos/flexible/kitchen/1/video.mp4" type="video/mp4">
+            </video>
+            <video id="flexible-comparison-video-1" autoplay muted playsinline controls hidden width="100%">
+              <source src="./videos/flexible/kitchen/1/video.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <span>Completed Set of Views</span>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Set playback rate for nerfbusters videos
+            const nerfbustersDataVideo0 = document.getElementById("flexible-data-video-0");
+            const nerfbustersDataVideo1 = document.getElementById("flexible-data-video-1");
+            nerfbustersDataVideo0.playbackRate = 4.0;
+            nerfbustersDataVideo1.playbackRate = 4.0;
+          });
+        </script>
+        <script>
+          flexible_video0 = document.getElementById("flexible-comparison-video-0");
+          flexible_video1 = document.getElementById("flexible-comparison-video-1");
+          flexible_image0 = document.getElementById("flexible-comparison-image-0");
+          flexible_image1 = document.getElementById("flexible-comparison-image-1");
+          flexible_screenshot0 = document.getElementById("flexible-comparison-screenshot-0");
+          flexible_screenshot1 = document.getElementById("flexible-comparison-screenshot-1");
+          flexible_video0.addEventListener('loadedmetadata', function () {
+            if (flexible_activeVidID == 0) {
+              flexible_video0.play();
+              flexible_video0.hidden = false;
+              flexible_video1.hidden = true;
+
+              flexible_image0.hidden = false;
+              flexible_image1.hidden = true;
+
+              flexible_screenshot0.hidden = false;
+              flexible_screenshot1.hidden = true;
+            }
+          });
+          flexible_video1.addEventListener('loadedmetadata', function () {
+            if (flexible_activeVidID == 1) {
+              flexible_video1.play();
+              flexible_video0.hidden = true;
+              flexible_video1.hidden = false;
+
+              flexible_image0.hidden = true;
+              flexible_image1.hidden = false;
+
+              flexible_screenshot0.hidden = true;
+              flexible_screenshot1.hidden = false;
+            }
+          });
+          const pauseDuration = 2000; // Pause duration in milliseconds (e.g., 2000ms = 2 seconds)
+          flexible_video0.addEventListener('ended', () => {
+            setTimeout(() => {
+              flexible_video0.play();
+            }, pauseDuration);
+          });
+          flexible_video1.addEventListener('ended', () => {
+            setTimeout(() => {
+              flexible_video1.play();
+            }, pauseDuration);
+          });
+          setComparisonVideo_flexible();
+        </script>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Interactive Comparisons<br>for "Completing Casually Captured Scenes"</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              We complete casual captures from the Nerfbusters Dataset.
+              <br>
+              <i>Select a baseline method and scene to see the results. Ours is on the right.</i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- buttons to toggle videos with method. The buttons should be NeRFiller, Masked NeRF -->
+    <!-- buttons to toggle videos with dataset. The buttons should be bear, cat, etc. -->
+    <script>
+      // set method
+      // set dataset
+    </script>
+    <div class="container">
+      <div class="columns is-centered" style="margin-bottom: 0px;">
+        <div class="column is-full-width" style="padding: 0px">
+          <div class="content has-text-centered">
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="gsplat-comparison"
+              onclick="setMethod_nerfbusters('gsplat-comparison')">3DGS</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="nerfiller-comparison"
+              onclick="setMethod_nerfbusters('nerfiller-comparison')">NeRFiller</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="cat3d-comparison"
+              onclick="setMethod_nerfbusters('cat3d-comparison')">CAT3D-sequence-size</button>
+          </div>
+        </div>
+      </div>
+      <div class="column is-full-width" style="padding: 0px;">
+        <div class="column is-full-width">
+          <div class="content has-text-centered">
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="aloe"
+              onclick="setDataset_nerfbusters('aloe')">Aloe</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="art"
+              onclick="setDataset_nerfbusters('art')">Art</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="car"
+              onclick="setDataset_nerfbusters('car')">Car</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="century"
+              onclick="setDataset_nerfbusters('century')">Century</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="flowers"
+              onclick="setDataset_nerfbusters('flowers')">Flowers</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="garbage"
+              onclick="setDataset_nerfbusters('garbage')">Garbage</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="picnic"
+              onclick="setDataset_nerfbusters('picnic')">Picnic</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="pipe"
+              onclick="setDataset_nerfbusters('pipe')">Pipe</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="plant"
+              onclick="setDataset_nerfbusters('plant')">Plant</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="roses"
+              onclick="setDataset_nerfbusters('roses')">Roses</button>
+            <button class="button nerfbusters-button is-rounded is-dark is-small" id="table"
+              onclick="setDataset_nerfbusters('table')">Table</button>
+          </div>
+        </div>
+      </div>
+      <div class="nerfbusters-data-container is-max-widescreen is-centered">
+        <span class="styled-button">Casual Capture Input:</span>
+        <video id="nerfbusters-data-video-0" autoplay muted loop playsinline height="100px">
+          <source src="./videos/nerfbusters-data/aloe.mp4" type="video/mp4">
+        </video>
+        <video id="nerfbusters-data-video-1" autoplay muted loop playsinline hidden height="100px">
+          <source src="./videos/nerfbusters-data/aloe.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="container is-max-widescreen is-centered">
+        <video id="nerfbusters-comparison-video-0" autoplay muted loop playsinline width="100%">
+          <source src="./videos/nerfbusters/aloe-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <video id="nerfbusters-comparison-video-1" autoplay muted loop playsinline hidden width="100%">
+          <source src="./videos/nerfbusters/aloe-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <span id="nerfbusters-baseline">Selected Baseline</span>
+          <span>Fillerbuster (ours)</span>
+        </div>
+      </div>
+      <script>
+        video0 = document.getElementById("nerfbusters-comparison-video-0");
+        video1 = document.getElementById("nerfbusters-comparison-video-1");
+        video0.addEventListener('loadedmetadata', function () {
+          if (nerfbusters_activeVidID == 0) {
+            video0.play();
+            video0.hidden = false;
+            video1.hidden = true;
+          }
+        });
+        video1.addEventListener('loadedmetadata', function () {
+          if (nerfbusters_activeVidID == 1) {
+            video1.play();
+            video0.hidden = true;
+            video1.hidden = false;
+          }
+        });
+        nerfbusters_data_video0 = document.getElementById("nerfbusters-data-video-0");
+        nerfbusters_data_video1 = document.getElementById("nerfbusters-data-video-1");
+        nerfbusters_data_video0.addEventListener('loadedmetadata', function () {
+          if (nerfbusters_activeVidID == 0) {
+            nerfbusters_data_video0.playbackRate = 4.0;
+            nerfbusters_data_video0.play();
+            nerfbusters_data_video0.hidden = false;
+            nerfbusters_data_video1.hidden = true;
+          }
+        });
+        nerfbusters_data_video1.addEventListener('loadedmetadata', function () {
+          if (nerfbusters_activeVidID == 1) {
+            nerfbusters_data_video1.playbackRate = 4.0;
+            nerfbusters_data_video1.play();
+            nerfbusters_data_video0.hidden = true;
+            nerfbusters_data_video1.hidden = false;
+          }
+        });
+        setComparisonVideo_nerfbusters();
+      </script>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Interactive Comparisons<br>for "Completing Masked 3D Regions"</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              We complete the NeRFiller Dataset with higher quality and consistency than their approach.
+              <br>
+              <i>Select a baseline method and scene to see the results. Ours is on the right.</i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- buttons to toggle videos with method. The buttons should be NeRFiller, Masked NeRF -->
+    <!-- buttons to toggle videos with dataset. The buttons should be bear, cat, etc. -->
+    <script>
+      // set method
+      // set dataset
+    </script>
+    <div class="container">
+      <div class="columns is-centered" style="margin-bottom: 0px;">
+        <div class="column is-full-width" style="padding: 0px">
+          <div class="content has-text-centered">
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="gsplat-comparison"
+              onclick="setMethod_nerfiller('gsplat-comparison')">3DGS</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="nerfiller-no-new-views-comparison"
+              onclick="setMethod_nerfiller('nerfiller-no-new-views-comparison')">NeRFiller</button>
+          </div>
+        </div>
+      </div>
+      <div class="column is-full-width" style="padding: 0px;">
+        <div class="column is-full-width">
+          <div class="content has-text-centered">
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="dumptruck"
+              onclick="setDataset_nerfiller('dumptruck')">Dumptruck</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="turtle"
+              onclick="setDataset_nerfiller('turtle')">Turtle</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="drawing"
+              onclick="setDataset_nerfiller('drawing')">Drawing</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="bear"
+              onclick="setDataset_nerfiller('bear')">Bear</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="billiards"
+              onclick="setDataset_nerfiller('billiards')">Billiards</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="norway"
+              onclick="setDataset_nerfiller('norway')">Norway</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="cat"
+              onclick="setDataset_nerfiller('cat')">Cat</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="boot"
+              onclick="setDataset_nerfiller('boot')">Boot</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="office"
+              onclick="setDataset_nerfiller('office')">Office</button>
+          </div>
+        </div>
+      </div>
+      <div class="container is-max-widescreen is-centered">
+        <video id="nerfiller-comparison-video-0" autoplay muted loop playsinline width="100%">
+          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <video id="nerfiller-comparison-video-1" autoplay muted loop playsinline hidden width="100%">
+          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <div class="overlay overlay2">
+          <span>Masked</span>
+          <span id="nerfiller-baseline">Selected Baseline</span>
+          <span>Fillerbuster (ours)</span>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Set playback rate for nerfbusters videos
+          const nerfbustersDataVideo0 = document.getElementById("nerfbusters-data-video-0");
+          const nerfbustersDataVideo1 = document.getElementById("nerfbusters-data-video-1");
+          nerfbustersDataVideo0.playbackRate = 4.0;
+          nerfbustersDataVideo1.playbackRate = 4.0;
+        });
+      </script>
+      <script>
+        nerfiller_video0 = document.getElementById("nerfiller-comparison-video-0");
+        nerfiller_video1 = document.getElementById("nerfiller-comparison-video-1");
+        nerfiller_video0.addEventListener('loadedmetadata', function () {
+          if (nerfiller_activeVidID == 0) {
+            nerfiller_video0.play();
+            nerfiller_video0.hidden = false;
+            nerfiller_video1.hidden = true;
+          }
+        });
+        nerfiller_video1.addEventListener('loadedmetadata', function () {
+          if (nerfiller_activeVidID == 1) {
+            nerfiller_video1.play();
+            nerfiller_video0.hidden = true;
+            nerfiller_video1.hidden = false;
+          }
+        });
+        setComparisonVideo_nerfiller();
+      </script>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Interactive Comparisons<br>for "Uncalibrated Scene Completion"</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              We generate a 360 video from an unposed image collection.
+              <br>
+              TODO: show those videos here in a carousel
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                We thank the <a href="https://nerfies.github.io/">Nerfies</a> authors for providing us
+                with this <a href="https://github.com/nerfies/nerfies.github.io">website template</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+
+</html>
