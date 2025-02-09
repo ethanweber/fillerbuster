@@ -2,16 +2,26 @@
 <html>
 
 <head>
-  <!-- todo: remove this when going public -->
-  <meta name="robots" content="noindex, nofollow">
 
   <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" name="description" />
-  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="og:title" />
-  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="og:description" />
-  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="twitter:title" />
-  <meta content="Fillerbuster: Multi-View Scene Completion for Casual Captures" property="twitter:description" />
-  <meta property="og:type" content="website" />
-  <meta content="summary_large_image" name="twitter:card" />
+
+  <!-- Open Graph Metadata for Facebook, LinkedIn, etc. -->
+  <meta property="og:title" content="Fillerbuster: Multi-View Scene Completion for Casual Captures">
+  <meta property="og:description"
+    content="A unified framework for scene completion that reconstructs and completes missing parts of casually captured scenes.">
+  <meta property="og:image" content="https://ethanweber.me/fillerbuster/images/model-architecture.jpg">
+  <meta property="og:image:alt" content="Fillerbuster Model Architecture Overview">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ethanweber.me/fillerbuster/">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fillerbuster: Multi-View Scene Completion for Casual Captures">
+  <meta name="twitter:description"
+    content="A unified framework for scene completion that reconstructs and completes missing parts of casually captured scenes.">
+  <meta name="twitter:image" content="https://ethanweber.me/fillerbuster/images/model-architecture.jpg">
+  <meta name="twitter:image:alt" content="Fillerbuster Model Architecture Overview">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <meta charset="UTF-8">
 
@@ -53,7 +63,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title method-class">
-              Fillerbuster: Multi-View Scene Completion<br>for Casual Captures
+              📜 Fillerbuster: Multi-View Scene Completion for Casual Captures
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -82,7 +92,7 @@
             </div>
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>UC Berkeley,</span>
-              <span class="author-block"><sup>2</sup>U Toronto,</span>
+              <span class="author-block"><sup>2</sup>University of Toronto,</span>
               <span href="https://about.meta.com/realitylabs/" class="author-block"><sup>3</sup>Meta Reality Labs</span>
             </div>
 
@@ -100,6 +110,14 @@
                     <span>arXiv</span>
                   </a>
                 </span>
+                <span class="link-block">
+                  <a href="Fillerbuster.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-file-pdf"></i>
+                    </span>
+                    <span>PDF</span>
+                  </a>
+                </span>
                 <!-- Code Link. -->
                 <span class="link-block">
                   <a href="https://github.com/facebookresearch/fillerbuster"
@@ -107,7 +125,16 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code & Weights</span>
+                  </a>
+                </span>
+                <!-- Overview Video. -->
+                <span class="link-block">
+                  <a href="https://youtu.be/_WfzxqtzMZg" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Overview Video</span>
                   </a>
                 </span>
               </div>
@@ -119,48 +146,230 @@
     </div>
   </section>
 
-  <section class="hero teaser">
+  <!-- <section class="hero teaser">
     <div class="container is-max-widescreen">
       <div class="hero-body is-size-3">
         <div style="text-align: center;">
-          TLDR: <span class="method-class">Fillerbuster</span> completes unknown regions of a 3D scene by utilizing our
-          novel multi-view latent diffusion transformer.
-        </div>
-        <div class="container" style="display: flex;">
-          <img src="images/model-architecture.jpg" style="width: 100%; height: auto;">
+          TLDR: <span class="method-class">Fillerbuster</span>
+          is a unified scene completion framework that jointly models camera poses and images to complete casually
+          captured scenes.
+          We train a ~1B model from scratch that can condition on known images and pixels, and generate the unknown
+          content to complete the scenes.
+          An important distinction of our work is to try to handle the long-context problem where our casually captured
+          scenes have hundreds of input frames, and we wish to generate a lot of missing content. We release our code and weights!
         </div>
       </div>
+    </div>
+    </div>
+  </section> -->
+
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body is-size-5 has-text-centered">
+        <div style="text-align: center;">
+          <strong>TLDR:</strong> <span class="method-class">Fillerbuster</span>
+          is a unified framework for scene completion that jointly models images and camera poses to reconstruct and
+          complete missing parts of casually captured scenes. We train a 1B-parameter diffusion model <b>from
+            scratch</b>,
+          capable of conditioning on partial images and raymaps to generate the unknown content.
+          <br><br>
+          A key distinction of our approach is its ability to handle <b>large-sequence scenarios</b> because casually
+          captured scenes contain <b>hundreds of input frames</b>. Conditioning on just a few of these images will not
+          encode the entire context when generating new views. Noteably, this is different than the single or
+          few-view to 3D generative setting.
+          <br><br>
+          <div class="container" style="display: flex; justify-content: center;">
+            <img src="images/problem-difficulty.png" style="width: 70%; height: auto;">
+          </div>
+          <br>
+          <strong>We've released our <a href="https://github.com/facebookresearch/fillerbuster">code and model
+              weights</a>!</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Fillerbuster Overview</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              Our model is unique in that it jointly models both pose and images. We follow an inpainting strategy where
+              we can condition on any known pixels and rays and generate the unknown pixels and rays. In practice, we
+              use image and raymap latents from two separate VAEs that we train from scratch.
+              Please see <a href="images/model-architecture-detailed.pdf">our figure</a> from the Appendix for more
+              details on our model architecture.
+            </p>
+            <div class="container" style="display: flex;">
+              <img src="images/model-architecture.jpg" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Scene Completion Task</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>We use our model to generate missing views of completely unobserved areas in a casual capture! On the right, we show some generated views alongside the result after training 3DGS. Keep scrolling through our project page for more results and videos!</p>
+            <div class="container" style="display: flex;">
+              <img src="images/teaser.png" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">Overview Video</h2>
+          <h2 class="title is-3">Completing Masked 3D Regions</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              We complete the NeRFiller Dataset with higher quality and consistency than their approach.
+              <br>
+              <i>Select a baseline method and scene to see the results. Ours is on the right.</i>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="container is-max-widescreen is-centered" style="text-align: center;">
-      <button class="button is-normal is-rounded is-dark" id="toggle-overview-video-button"
-        onclick="toggleOverviewVideo()">Show Overview Video</button>
-      <div id="overview-video-container" style="display: none;">
-        <video id="overview-video" width="100%" controls>
-          <source src="Fillerbuster-overview.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
+
+    <!-- buttons to toggle videos with method. The buttons should be NeRFiller, Masked NeRF -->
+    <!-- buttons to toggle videos with dataset. The buttons should be bear, cat, etc. -->
     <script>
-      function toggleOverviewVideo() {
-        const videoContainer = document.getElementById("overview-video-container");
-        if (videoContainer.style.display === "none") {
-          videoContainer.style.display = "block";
-          document.getElementById("toggle-overview-video-button").textContent = "Hide Overview Video";
-        } else {
-          videoContainer.style.display = "none";
-          document.getElementById("toggle-overview-video-button").textContent = "Show Overview Video";
-        }
-      }
+      // set method
+      // set dataset
     </script>
-
+    <div class="container">
+      <div class="columns is-centered" style="margin-bottom: 0px;">
+        <div class="column is-full-width" style="padding: 0px">
+          <div class="content has-text-centered">
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="gsplat-comparison"
+              onclick="setMethod_nerfiller('gsplat-comparison')">3DGS</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="nerfiller-no-new-views-comparison"
+              onclick="setMethod_nerfiller('nerfiller-no-new-views-comparison')">NeRFiller</button>
+          </div>
+        </div>
+      </div>
+      <div class="column is-full-width" style="padding: 0px;">
+        <div class="column is-full-width">
+          <div class="content has-text-centered">
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="dumptruck"
+              onclick="setDataset_nerfiller('dumptruck')">Dumptruck</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="turtle"
+              onclick="setDataset_nerfiller('turtle')">Turtle</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="drawing"
+              onclick="setDataset_nerfiller('drawing')">Drawing</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="bear"
+              onclick="setDataset_nerfiller('bear')">Bear</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="billiards"
+              onclick="setDataset_nerfiller('billiards')">Billiards</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="norway"
+              onclick="setDataset_nerfiller('norway')">Norway</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="cat"
+              onclick="setDataset_nerfiller('cat')">Cat</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="boot"
+              onclick="setDataset_nerfiller('boot')">Boot</button>
+            <button class="button nerfiller-button is-rounded is-dark is-small" id="office"
+              onclick="setDataset_nerfiller('office')">Office</button>
+          </div>
+        </div>
+      </div>
+      <div class="container is-max-widescreen is-centered">
+        <video id="nerfiller-comparison-video-0" autoplay muted loop playsinline width="100%">
+          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <video id="nerfiller-comparison-video-1" autoplay muted loop playsinline hidden width="100%">
+          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
+        </video>
+        <div class="overlay overlay2">
+          <span>Masked</span>
+          <span id="nerfiller-baseline">Selected Baseline</span>
+          <span>Fillerbuster (ours)</span>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Set playback rate for nerfbusters videos
+          const nerfbustersDataVideo0 = document.getElementById("nerfbusters-data-video-0");
+          const nerfbustersDataVideo1 = document.getElementById("nerfbusters-data-video-1");
+          nerfbustersDataVideo0.playbackRate = 4.0;
+          nerfbustersDataVideo1.playbackRate = 4.0;
+        });
+      </script>
+      <script>
+        nerfiller_video0 = document.getElementById("nerfiller-comparison-video-0");
+        nerfiller_video1 = document.getElementById("nerfiller-comparison-video-1");
+        nerfiller_video0.addEventListener('loadedmetadata', function () {
+          if (nerfiller_activeVidID == 0) {
+            nerfiller_video0.play();
+            nerfiller_video0.hidden = false;
+            nerfiller_video1.hidden = true;
+          }
+        });
+        nerfiller_video1.addEventListener('loadedmetadata', function () {
+          if (nerfiller_activeVidID == 1) {
+            nerfiller_video1.play();
+            nerfiller_video0.hidden = true;
+            nerfiller_video1.hidden = false;
+          }
+        });
+        setComparisonVideo_nerfiller();
+      </script>
     </div>
 
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Uncalibrated Scene Completion</h2>
+          <div class="content has-text-centered" style="margin-bottom: 10px;">
+            <p>
+              Our model can generate a completed scene from an unposed image collection! We extract 16 images from an
+              input video
+              (9 shown here) and use our model to generate both ray maps and a 360° video that explores the scene.
+              The generated video follows the gray trajectory shown in the middle.
+              <br><br>
+              Unlike previous methods, our unified model jointly handles both pose prediction and novel-view synthesis,
+              integrating them into a single framework rather than treating them as separate tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-body">
+        <div class="container is-max-widescreen">
+          <div id="blender-carousel" class="carousel1 results-carousel">
+            <div class="item">
+              <video poster="" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/uncalibrated/couch.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video poster="" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/uncalibrated/chairs.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
 
@@ -304,7 +513,7 @@
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">Interactive Comparisons<br>for "Completing Casually Captured Scenes"</h2>
+          <h2 class="title is-3">Completing Casually Captured Scenes</h2>
           <div class="content has-text-centered" style="margin-bottom: 10px;">
             <p>
               We complete casual captures from the Nerfbusters Dataset.
@@ -422,144 +631,134 @@
         setComparisonVideo_nerfbusters();
       </script>
     </div>
-
   </section>
-
 
   <section class="section">
     <div class="container is-max-widescreen">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">Interactive Comparisons<br>for "Completing Masked 3D Regions"</h2>
-          <div class="content has-text-centered" style="margin-bottom: 10px;">
-            <p>
-              We complete the NeRFiller Dataset with higher quality and consistency than their approach.
-              <br>
-              <i>Select a baseline method and scene to see the results. Ours is on the right.</i>
-            </p>
+          <h2 class="title is-3">Related (and Future) Work</h2>
+          <div class="content has-text-justified" style="margin-bottom: 10px;">
+            Throughout this project, both before and after its release, we encountered several related works that
+            align with or inspire our approach. Notable examples, in no particular order, include
+            <a href="https://hehao13.github.io/projects-CameraCtrl/" target="_blank">CameraCtrl</a>,
+            <a href="https://wzhouxiff.github.io/projects/MotionCtrl/" target="_blank">MotionCtrl</a>,
+            <a href="https://huanngzh.github.io/MV-Adapter-Page/" target="_blank">MV-Adapter</a>,
+            <a href="https://dust3r.europe.naverlabs.com/" target="_blank">DUSt3R</a>,
+            <a href="https://jasonyzhang.com/RayDiffusion/" target="_blank">Cameras as Rays</a>,
+            <a href="https://odyssey.systems/introducing-explorer" target="_blank">Odyssey's Explorer</a>,
+            <a href="https://www.worldlabs.ai/blog" target="_blank">World Labs</a>,
+            <a href="https://cat3d.github.io/" target="_blank">CAT3D</a> & <a href="https://cat-4d.github.io/"
+              target="_blank">CAT4D</a>,
+            <a href="https://haian-jin.github.io/projects/LVSM/" target="_blank">LVSM</a>,
+            <a href="https://arthurhero.github.io/projects/llrm/" target="_blank">Long-LRM</a>,
+            <a href="https://arxiv.org/abs/2501.13928" target="_blank">Fast3R</a>, and
+            <a href="https://cut3r.github.io/" target="_blank">CUT3R</a>.
+
+            Recent trends show a growing emphasis on feed-forward pose estimation and geometry prediction. However,
+            these methods often do not address extrapolating and generating missing content. Multi-view diffusion
+            techniques
+            can generate missing areas but are often limited to a fixed number of input and output views, making it
+            challenging to incorporate a large amount of context as input.
+            <br><br>
+            Our work explores a promising direction: integrating pose prediction with the ability to
+            extrapolate and generate novel views to fully complete scenes. We present one step in this direction and
+            hope future research
+            continues to unify these tasks into a single model, enabling broader multi-view reconstruction
+            capabilities.
+            <br><br>
+            Scaling up our approach with a larger model and more data, and incorporating depth maps and Gaussians, is
+            a natural next step. A key insight from our work is leveraging pixel-aligned conditioning both as the
+            input and as the output. This enables a highly flexible conditioning process, allowing any available
+            information to be used while still recovering missing details.
+            <br><br>
+            <i>More related work is discussed in our paper. If we've overlooked any relevant research, please reach
+              out—we'd love to include it!</i>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- buttons to toggle videos with method. The buttons should be NeRFiller, Masked NeRF -->
-    <!-- buttons to toggle videos with dataset. The buttons should be bear, cat, etc. -->
-    <script>
-      // set method
-      // set dataset
-    </script>
+  <section class="section">
+    <div class="container is-max-widescreen">
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Acknowledgements</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              We would like to thank
+              Timur Bagautdinov,
+              Jin Kyu Kim,
+              Julieta Martinez,
+              Su Zhaoen,
+              Rawal Khirodkar,
+              Nir Sopher,
+              Nicholas Dahm,
+              Alexander Richard,
+              Bob Hansen,
+              Stanislav Pidhorskyi,
+              Tomas Simon,
+              David McAllister,
+              Justin Kerr,
+              Frederik Warburg,
+              Riley Peterlinz,
+              Evonne Ng,
+              Aleksander Holynski,
+              Artem Sevastopolsky,
+              Tobias Kirschstein,
+              Chen Guo,
+              Nikhil Keetha,
+              Ayush Tewari,
+              Changil Kim,
+              Lorenzo Porzi,
+              Corinne Stucker,
+              Katja Schwarz, and
+              Julian Straub
+              for helpful discussions, technical support, and/or sharing relevant knowledge.
+            </p>
+            <p><i>If we missed you, it's our fault! Let us know.</i> 🙂</p>
+          </div>
+        </div>
+      </div>
+      <!--/ Concurrent Work. -->
+
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+      <h2 class="title">BibTeX</h2>
+      <p>Please consider citing our work if you find it useful.</p>
+      <pre><code>@misc{weber2025fillerbuster,
+  title = {Fillerbuster: Multi-View Scene Completion for Casual Captures},
+  author = {Ethan Weber and Norman M\"uller and Yash Kant and Vasu Agrawal and
+      Michael Zollh\"ofer and Angjoo Kanazawa and Christian Richardt},
+  note = {arXiv},
+  year = {2025},
+}
+</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
     <div class="container">
-      <div class="columns is-centered" style="margin-bottom: 0px;">
-        <div class="column is-full-width" style="padding: 0px">
-          <div class="content has-text-centered">
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="gsplat-comparison"
-              onclick="setMethod_nerfiller('gsplat-comparison')">3DGS</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="nerfiller-no-new-views-comparison"
-              onclick="setMethod_nerfiller('nerfiller-no-new-views-comparison')">NeRFiller</button>
-          </div>
-        </div>
-      </div>
-      <div class="column is-full-width" style="padding: 0px;">
-        <div class="column is-full-width">
-          <div class="content has-text-centered">
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="dumptruck"
-              onclick="setDataset_nerfiller('dumptruck')">Dumptruck</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="turtle"
-              onclick="setDataset_nerfiller('turtle')">Turtle</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="drawing"
-              onclick="setDataset_nerfiller('drawing')">Drawing</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="bear"
-              onclick="setDataset_nerfiller('bear')">Bear</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="billiards"
-              onclick="setDataset_nerfiller('billiards')">Billiards</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="norway"
-              onclick="setDataset_nerfiller('norway')">Norway</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="cat"
-              onclick="setDataset_nerfiller('cat')">Cat</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="boot"
-              onclick="setDataset_nerfiller('boot')">Boot</button>
-            <button class="button nerfiller-button is-rounded is-dark is-small" id="office"
-              onclick="setDataset_nerfiller('office')">Office</button>
-          </div>
-        </div>
-      </div>
-      <div class="container is-max-widescreen is-centered">
-        <video id="nerfiller-comparison-video-0" autoplay muted loop playsinline width="100%">
-          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
-        </video>
-        <video id="nerfiller-comparison-video-1" autoplay muted loop playsinline hidden width="100%">
-          <source src="./videos/nerfiller/billiards-gsplat-comparison.mp4" type="video/mp4">
-        </video>
-        <div class="overlay overlay2">
-          <span>Masked</span>
-          <span id="nerfiller-baseline">Selected Baseline</span>
-          <span>Fillerbuster (ours)</span>
-        </div>
-      </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          // Set playback rate for nerfbusters videos
-          const nerfbustersDataVideo0 = document.getElementById("nerfbusters-data-video-0");
-          const nerfbustersDataVideo1 = document.getElementById("nerfbusters-data-video-1");
-          nerfbustersDataVideo0.playbackRate = 4.0;
-          nerfbustersDataVideo1.playbackRate = 4.0;
-        });
-      </script>
-      <script>
-        nerfiller_video0 = document.getElementById("nerfiller-comparison-video-0");
-        nerfiller_video1 = document.getElementById("nerfiller-comparison-video-1");
-        nerfiller_video0.addEventListener('loadedmetadata', function () {
-          if (nerfiller_activeVidID == 0) {
-            nerfiller_video0.play();
-            nerfiller_video0.hidden = false;
-            nerfiller_video1.hidden = true;
-          }
-        });
-        nerfiller_video1.addEventListener('loadedmetadata', function () {
-          if (nerfiller_activeVidID == 1) {
-            nerfiller_video1.play();
-            nerfiller_video0.hidden = true;
-            nerfiller_video1.hidden = false;
-          }
-        });
-        setComparisonVideo_nerfiller();
-      </script>
-    </div>
-
-  </section>
-
-  <section class="section">
-    <div class="container is-max-widescreen">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Interactive Comparisons<br>for "Uncalibrated Scene Completion"</h2>
-          <div class="content has-text-centered" style="margin-bottom: 10px;">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
             <p>
-              We generate a 360 video from an unposed image collection.
-              <br>
-              TODO: show those videos here in a carousel
+              We thank the <a href="https://nerfies.github.io/">Nerfies</a> authors for providing us
+              with this <a href="https://github.com/nerfies/nerfies.github.io">website template</a>.
             </p>
           </div>
         </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p>
-                We thank the <a href="https://nerfies.github.io/">Nerfies</a> authors for providing us
-                with this <a href="https://github.com/nerfies/nerfies.github.io">website template</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+  </footer>
 
 </body>
 
