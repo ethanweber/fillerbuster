@@ -232,3 +232,17 @@ body {
   flex: 1; /* Ensures videos take equal space */
   max-width: 48%; /* Adjusts width to fit within the container */
 }
+
+.teaser-video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+.teaser-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
