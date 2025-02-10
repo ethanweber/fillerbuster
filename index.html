@@ -642,18 +642,6 @@
       <div class="container is-max-widescreen">
         <div class="content has-text-centered">
           <h2 class="title is-3">Calibrated Fly-Around</h2>
-          <!-- <p style="text-align: center">
-            Here we condition on a set of 16 images with known pose and generate a fly-around video all in one go!
-            We accomplish this with a single generation rather than using any keframes and doing multiple passes.
-            It takes less than a minute to generate the results on a A5000 GPU with 24GB of VRAM.
-            In order to understand more concretely how our model operates, consider the colorful image below. Our model
-            is effectively conditioned on the
-            "Masked images", the "Masked origins", and the "Masked directions" rows (where yellow indicates unkonwn
-            information). The model generates the missing values in the "Inpainted" rows, copying where it can and
-            generating content where it needs to (e.g., the ceiling).
-            The "GT" rows are shown as a reference and are black when not available to us.
-            Please see the paper for more details!
-          </p> -->
           <p style="text-align: center">
             Here we condition on a set of 16 images with known pose and generate a fly-around video all in one go!
             We accomplish this with a single generation rather than using any keyframing strategy or doing multiple passes.
