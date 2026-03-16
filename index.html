@@ -3,10 +3,10 @@
 
 <head>
 
-  <meta content="Fillerbuster: Unified Scene Completion Model for Casual Captures" name="description" />
+  <meta content="Fillerbuster: Unified Generative Scene Completion Model for Casual Captures" name="description" />
 
   <!-- Open Graph Metadata for Facebook, LinkedIn, etc. -->
-  <meta property="og:title" content="Fillerbuster: Unified Scene Completion Model for Casual Captures">
+  <meta property="og:title" content="Fillerbuster: Unified Generative Scene Completion Model for Casual Captures">
   <meta property="og:description"
     content="A unified framework for scene completion that reconstructs and completes missing parts of casually captured scenes.">
   <meta property="og:image" content="https://ethanweber.me/fillerbuster/images/model-architecture.jpg">
@@ -16,7 +16,7 @@
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fillerbuster: Unified Scene Completion Model for Casual Captures">
+  <meta name="twitter:title" content="Fillerbuster: Unified Generative Scene Completion Model for Casual Captures">
   <meta name="twitter:description"
     content="A unified framework for scene completion that reconstructs and completes missing parts of casually captured scenes.">
   <meta name="twitter:image" content="https://ethanweber.me/fillerbuster/images/model-architecture.jpg">
@@ -25,7 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <meta charset="UTF-8">
 
-  <title>Fillerbuster: Unified Scene Completion Model for Casual Captures</title>
+  <title>Fillerbuster: Unified Generative Scene Completion Model for Casual Captures</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -63,7 +63,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title method-class">
-              📜 Fillerbuster: Unified Scene Completion Model for Casual Captures
+              📜 Fillerbuster: Unified Generative Scene Completion Model for Casual Captures
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -139,7 +139,8 @@
                 </span>
                 <!-- Poster. -->
                 <span class="link-block">
-                  <a href="https://ethanweber.me/fillerbuster-poster/" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://ethanweber.me/fillerbuster-poster/"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fa fa-image"></i>
                     </span>
@@ -157,23 +158,6 @@
       </div>
     </div>
   </section>
-
-  <!-- <section class="hero teaser">
-    <div class="container is-max-widescreen">
-      <div class="hero-body is-size-3">
-        <div style="text-align: center;">
-          TLDR: <span class="method-class">Fillerbuster</span>
-          is a unified scene completion framework that jointly models camera poses and images to complete casually
-          captured scenes.
-          We train a ~1B model from scratch that can condition on known images and pixels, and generate the unknown
-          content to complete the scenes.
-          An important distinction of our work is to try to handle the long-context problem where our casually captured
-          scenes have hundreds of input frames, and we wish to generate a lot of missing content. We release our code and weights!
-        </div>
-      </div>
-    </div>
-    </div>
-  </section> -->
 
   <section class="hero teaser">
     <div class="container is-max-widescreen">
@@ -656,7 +640,8 @@
           <h2 class="title is-3">Calibrated Fly-Around</h2>
           <p style="text-align: center">
             Here we condition on a set of 16 images with known pose and generate a fly-around video all in one go!
-            We accomplish this with a single generation rather than using any keyframing strategy or doing multiple passes.
+            We accomplish this with a single generation rather than using any keyframing strategy or doing multiple
+            passes.
             It takes less than a minute to generate these results on an A5000 GPU with 24GB of VRAM.
             In order to understand more concretely how our model operates, consider the colorful image below. Our model
             is effectively conditioned on the
@@ -829,7 +814,7 @@
       <h2 class="title">BibTeX</h2>
       <p>Please consider citing our work if you find it useful.</p>
       <pre><code>@misc{weber2025fillerbuster,
-  title  = {Fillerbuster: Unified Scene Completion Model for Casual Captures},
+  title  = {Fillerbuster: Unified Generative Scene Completion Model for Casual Captures},
   author = {Ethan Weber and Norman M\"uller and Yash Kant and Vasu Agrawal and
             Michael Zollh\"ofer and Angjoo Kanazawa and Christian Richardt},
   booktitle = {3DV},
